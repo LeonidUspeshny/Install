@@ -25,3 +25,7 @@ ExecStart=/usr/bin/prometheus \
 
 [Install]  
 WantedBy=multi-user.target  
+systemctl enable prometheus  
+systemctl start prometheus  
+systemctl status prometheus
+
