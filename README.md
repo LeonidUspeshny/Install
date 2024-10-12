@@ -20,7 +20,7 @@ Group=prometheus
 Type=simple  
 Restart=on-failure  
 ExecStart=/usr/bin/prometheus \  
-  --config.file         /etc/prometheus/prometheus.yaml \  
+  --config.file         /etc/prometheus/prometheus.yml \  
   --storage.tsdb.path   /etc/prometheus/data  
 
 [Install]  
