@@ -27,5 +27,32 @@ ExecStart=/usr/bin/prometheus \
 WantedBy=multi-user.target  
 systemctl enable prometheus  
 systemctl start prometheus  
-systemctl status prometheus
+systemctl status prometheus  
+  
+Готовим сервера которые будем мониторить  
+качаем на сервер wget https://github.com/prometheus/node_exporter/releases/download/v1.8.2/node_exporter-1.8.2.linux-amd64.tar.gz 
+распаковываем, затем mv node_exporter /usr/bin/  
+создаем системного пользователя useradd -rs /bin/false node_exporter  
+chown node_exporter:node_exporter /usr/bin/node_exporter  
+nano /etc/systemd/system/node_exporter.service  
+[Unit]
+Description=Prometheus Node Exporter
+After=network.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+Restart=on-failure
+ExecStart=/usr/bin/node_exporter
+
+[Install]
+WantedBy=multi-user.target
+systemctl enable node_exporter   
+systemctl start node_exporter   
+systemctl status node_exporter 
+Перезапускаем сервер systemctl restart prometheus  
+
+
+
 
