@@ -23,5 +23,5 @@ ExecStart=/usr/bin/prometheus \
   --config.file         /etc/prometheus/prometheus.yaml \  
   --storage.tsdb.path   /etc/prometheus/data  
 
-[Instrall]  
+[Install]  
 WantedBy=multi-user.target  
