@@ -8,7 +8,7 @@ mkdir /etc/prometheus/data
 mv prometheus.yml /etc/prometheus/  
 useradd -rs /bin/false prometheus  
 chown prometheus:prometheus /usr/bin/prometheus  
-chown -R prometheus:prometheus /usr/bin/prometheus  
+chown -R prometheus:prometheus /etc/prometheus  
 nano /etc/systemd/system/prometheus.service  
 [Unit]  
 Description=Prometheus Server  
